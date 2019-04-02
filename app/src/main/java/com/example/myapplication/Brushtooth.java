@@ -8,7 +8,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class Brushtooth extends AppCompatActivity {
 
     ViewPager viewPager;
     Adapter adapter;
@@ -19,12 +19,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_brushtooth);
 
         models =new ArrayList<>();
-        Integer[] imgId={R.drawable.capture1,R.drawable.capture2,R.drawable.capture3,R.drawable.capture4,
-                R.drawable.capture5,R.drawable.capture7,R.drawable.capture8,R.drawable.capture9,
-                R.drawable.capture10,R.drawable.capture11,R.drawable.capture12,R.drawable.capture13};
+        Integer[] imgId={R.drawable.bt1,R.drawable.bt2,R.drawable.bt3,R.drawable.bt4,R.drawable.bt5,R.drawable.bt6};
         for (int i=0;i<imgId.length;i++){
             models.add(new Model(imgId[i],"",""));
         }
@@ -43,17 +41,15 @@ public class MainActivity extends AppCompatActivity {
                 getResources().getColor(R.color.color2),
                 getResources().getColor(R.color.color3),
                 getResources().getColor(R.color.color4),
-                getResources().getColor(R.color.color1),
-                getResources().getColor(R.color.color2),
-                getResources().getColor(R.color.color3),
-                getResources().getColor(R.color.color4),getResources().getColor(R.color.color1),
-                getResources().getColor(R.color.color2),
-                getResources().getColor(R.color.color3),
-                getResources().getColor(R.color.color4),getResources().getColor(R.color.color1),
-                getResources().getColor(R.color.color2),
-                getResources().getColor(R.color.color3),
                 getResources().getColor(R.color.color4),
-
+                getResources().getColor(R.color.color4),
+                getResources().getColor(R.color.color4),
+                getResources().getColor(R.color.color4),
+                getResources().getColor(R.color.color4),
+                getResources().getColor(R.color.color4),getResources().getColor(R.color.color4),
+                getResources().getColor(R.color.color4),
+                getResources().getColor(R.color.color4),getResources().getColor(R.color.color4),
+                getResources().getColor(R.color.color4)
         };
 
         colors =colors_temp;
