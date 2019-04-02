@@ -26,7 +26,7 @@ public class HomeScreen extends AppCompatActivity {
         Runnable r =new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(HomeScreen.this,MainActivity.class));
+                startActivity(new Intent(HomeScreen.this,CategoryActivity.class));
                 finish();
             }
         };

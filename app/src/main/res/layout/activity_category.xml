@@ -9,9 +9,7 @@
     android:background="@drawable/bg2"
     tools:context=".CategoryActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height=""></LinearLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -63,7 +61,7 @@
 
                 <ImageView
                     android:layout_weight="1"
-                    android:src="@drawable/learnPlay"
+                    android:src="@drawable/learn_play"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -101,7 +99,7 @@
 
                 <ImageView
                     android:layout_weight="1"
-                    android:src="@drawable/socialIcon"
+                    android:src="@drawable/social_icon"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -137,7 +135,7 @@
 
             <ImageView
                 android:layout_weight="1"
-                android:src="@drawable/createSocial"
+                android:src="@drawable/create_social"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

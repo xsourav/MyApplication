@@ -56,14 +56,12 @@ public class CategoryActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),MainActivity.class));
                     }
                     else if(finalI1 ==1){
-                        startActivity(new Intent(getApplicationContext(),Brushtooth.class));
+                        startActivity(new Intent(getApplicationContext(),SocialStoryCategory.class));
                     }
                     else if(finalI1 ==2){
                         startActivity(new Intent(getApplicationContext(),PlayFriendsActivity.class));
                     }
-                    else if(finalI1 ==3){
-                        startActivity(new Intent(getApplicationContext(),BirthdayActivity.class));
-                    }
+
 
                 }
                 });

@@ -12,18 +12,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".SocialStoryCategory"></activity>
-        <activity android:name=".BirthdayActivity" />
-        <activity android:name=".PlayFriendsActivity" />
-        <activity android:name=".Brushtooth" />
-        <activity android:name=".CategoryActivity">
+        <activity android:name=".HomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SocialStoryCategory"></activity>
+        <activity android:name=".BirthdayActivity" />
+        <activity android:name=".PlayFriendsActivity" />
+        <activity android:name=".Brushtooth" />
+        <activity android:name=".CategoryActivity">
+        </activity>
         <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
