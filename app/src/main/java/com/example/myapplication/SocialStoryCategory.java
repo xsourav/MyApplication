@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -37,7 +36,7 @@ public class SocialStoryCategory extends AppCompatActivity {
                     startActivity(new Intent(SocialStoryCategory.this,BirthdayActivity.class));
                 }
                 else if(position==1){
-                    startActivity(new Intent(SocialStoryCategory.this,MainActivity.class));
+                    startActivity(new Intent(SocialStoryCategory.this, SchoolActivity.class));
                 }
                 else if(position==2){
                     startActivity(new Intent(SocialStoryCategory.this,Brushtooth.class));

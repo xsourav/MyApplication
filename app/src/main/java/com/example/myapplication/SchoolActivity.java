@@ -8,7 +8,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class SchoolActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     Adapter adapter;
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_school);
 
         models =new ArrayList<>();
         Integer[] imgId={R.drawable.capture1,R.drawable.capture2,R.drawable.capture3,R.drawable.capture4,
