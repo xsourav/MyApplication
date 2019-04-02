@@ -29,6 +29,13 @@
         <activity android:name=".SchoolActivity" />
         <activity android:name="learn.Learn_Activity"
             android:label="Learn Through Images"></activity>
+
+        <activity android:name=".PlayList"
+            android:label="@string/play_name"
+            android:theme="@style/PlayTheme"></activity>
+
+        <activity android:name="play.GameActivity"></activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

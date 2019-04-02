@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="play">PLAY</string>
+    <string name="help">Drag the respective photos into their blank space.If u get all correct click on next to load next set of options.</string>
+    <string name="play_name">Game Section</string>
+
 </resources>
