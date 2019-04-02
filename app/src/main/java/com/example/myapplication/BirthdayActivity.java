@@ -8,8 +8,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-
+public class BirthdayActivity extends AppCompatActivity {
     ViewPager viewPager;
     Adapter adapter;
     List<Model> models;
@@ -19,12 +18,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_birthday);
         models =new ArrayList<>();
-        Integer[] imgId={R.drawable.capture1,R.drawable.capture2,R.drawable.capture3,R.drawable.capture4,
-                R.drawable.capture5,R.drawable.capture7,R.drawable.capture8,R.drawable.capture9,
-                R.drawable.capture10,R.drawable.capture11,R.drawable.capture12,R.drawable.capture13};
+        Integer[] imgId={R.drawable.bd1,R.drawable.bd2,R.drawable.bd3,R.drawable.bd4,
+                R.drawable.bd5,R.drawable.bd6,R.drawable.bd7,R.drawable.bd8,R.drawable.bd9,R.drawable.bd10,R.drawable.bd11,
+                R.drawable.bd12,R.drawable.bd13,R.drawable.bd14,R.drawable.bd15};
         for (int i=0;i<imgId.length;i++){
             models.add(new Model(imgId[i],"",""));
         }
