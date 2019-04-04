@@ -56,7 +56,7 @@ public class PlayFriendsActivity extends AppCompatActivity implements  TextToSpe
                 R.drawable.pg6,R.drawable.pg7,R.drawable.pg8,R.drawable.pg9,
                 R.drawable.pg10,R.drawable.pg11,R.drawable.pg12,R.drawable.pg13};
         for (int i=0;i<imgId.length;i++){
-            models.add(new Model(imgId[i],"",description.get(i)));
+            models.add(new Model(imgId[i],"",""));
         }
 
         textToRead=description.get(0);
@@ -102,7 +102,7 @@ public class PlayFriendsActivity extends AppCompatActivity implements  TextToSpe
 
             @Override
             public void onPageSelected(int i) {
-                textToRead=models.get(i).getDesc();
+                textToRead=description.get(i);
             }
 
             @Override

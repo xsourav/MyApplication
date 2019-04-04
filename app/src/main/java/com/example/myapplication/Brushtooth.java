@@ -48,7 +48,7 @@ public class Brushtooth extends AppCompatActivity implements TextToSpeech.OnInit
 
         Integer[] imgId={R.drawable.bt1,R.drawable.bt2,R.drawable.bt3,R.drawable.bt4,R.drawable.bt5,R.drawable.bt6};
         for (int i=0;i<imgId.length;i++){
-            models.add(new Model(imgId[i],"",description.get(i)));
+            models.add(new Model(imgId[i],"",""));
         }
         textToRead=description.get(0);
 //        models.add(new Model(R.drawable.birthday, "Brochure", "qqqqqqqqqqqqq"));
@@ -93,7 +93,7 @@ public class Brushtooth extends AppCompatActivity implements TextToSpeech.OnInit
 
             @Override
             public void onPageSelected(int i) {
-                textToRead=models.get(i).getDesc();
+                textToRead=description.get(i);
 
             }
 

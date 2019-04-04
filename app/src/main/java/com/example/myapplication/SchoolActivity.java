@@ -54,7 +54,7 @@ public class SchoolActivity extends AppCompatActivity implements TextToSpeech.On
                 R.drawable.capture5,R.drawable.capture7,R.drawable.capture8,R.drawable.capture9,
                 R.drawable.capture10,R.drawable.capture11,R.drawable.capture12,R.drawable.capture13};
         for (int i=0;i<imgId.length;i++){
-            models.add(new Model(imgId[i],"",description.get(i)));
+            models.add(new Model(imgId[i],"",""));
 
         }
         textToRead=description.get(0);
@@ -65,7 +65,7 @@ public class SchoolActivity extends AppCompatActivity implements TextToSpeech.On
 
         adapter = new Adapter(models,this);
         viewPager= findViewById(R.id.viewPager);
-        readOutButton=findViewById(R.id.btnReadOut);
+        readOutButton=findViewById(R.id.btnOrder);
         readOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +109,7 @@ public class SchoolActivity extends AppCompatActivity implements TextToSpeech.On
 
             @Override
             public void onPageSelected(int i) {
-                textToRead=models.get(i).getDesc();
+                textToRead=description.get(i);
                 Log.i("MyText"+ i, textToRead);
 
             }

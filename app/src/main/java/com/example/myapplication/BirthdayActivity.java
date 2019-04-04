@@ -39,9 +39,9 @@ public class BirthdayActivity extends AppCompatActivity implements TextToSpeech.
         models =new ArrayList<>();
         description = new ArrayList<>();
         description.add("I like to play with my friends at school.");
-        description.add("Sometimes my friends wll invite me to go to a party for their birthday.");
+        description.add("Sometimes my friends will invite me to go to a party for their birthday.");
         description.add("The party could be at a house, or a play center, or somewhere else.");
-        description.add("When i arrive at the birthday party. I usaully give my friend a present.");
+        description.add("When i arrive at the birthday party. I usually give my friend a present.");
         description.add("Then I will say \"Happy Birthday\" to my friend.");
         description.add("At the party, there will be other children and Mums and Dads");
         description.add("Sometimes there will be games to play.We might play pass the parcel.");
@@ -58,7 +58,7 @@ public class BirthdayActivity extends AppCompatActivity implements TextToSpeech.
                 R.drawable.bd5,R.drawable.bd6,R.drawable.bd7,R.drawable.bd8,R.drawable.bd9,R.drawable.bd10,R.drawable.bd11,
                 R.drawable.bd12,R.drawable.bd13,R.drawable.bd14,R.drawable.bd15};
         for (int i=0;i<imgId.length;i++){
-            models.add(new Model(imgId[i],"",description.get(i)));
+            models.add(new Model(imgId[i],"",""));
         }
         textToRead=description.get(0);
 
@@ -101,7 +101,7 @@ public class BirthdayActivity extends AppCompatActivity implements TextToSpeech.
 
             @Override
             public void onPageSelected(int i) {
-                textToRead=models.get(i).getDesc();
+                textToRead=description.get(i);
             }
 
             @Override
