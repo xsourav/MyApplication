@@ -25,7 +25,9 @@ public class SocialStoryCategory extends AppCompatActivity {
         als.add("Birthday Celebration");
         als.add("School");
         als.add("Brushing Tooth");
-        als.add("PLay With Friends");
+        als.add("Play With Friends");
+        als.add("Play hide and seek");
+        als.add("Ask for help");
         adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,als);
         listView=findViewById(R.id.socialStoryListView);
         listView.setAdapter(adapter);
@@ -44,6 +46,13 @@ public class SocialStoryCategory extends AppCompatActivity {
                 else if(position==3){
                     startActivity(new Intent(SocialStoryCategory.this,PlayFriendsActivity.class));
                 }
+                else if(position==4){
+                    startActivity(new Intent(SocialStoryCategory.this,PlayHideAndSeek.class));
+                }
+                else if(position==5){
+                    startActivity(new Intent(SocialStoryCategory.this,AskForHelp.class));
+                }
+
             }
         });
 
