@@ -4,8 +4,6 @@
     package="com.example.myapplication">
 
     <dist:module dist:instant="true" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
 
     <application
         android:allowBackup="true"
@@ -14,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".LearnList"></activity>
+        <activity android:name=".AskForHelp"></activity>
+        <activity android:name=".PlayHideAndSeek" />
+        <activity android:name=".LearnList" />
         <activity android:name=".LearnPlayStartActivity" />
         <activity android:name=".HomeScreen">
             <intent-filter>
@@ -29,15 +29,15 @@
         <activity android:name=".Brushtooth" />
         <activity android:name=".CategoryActivity" />
         <activity android:name=".SchoolActivity" />
-        <activity android:name="learn.Learn_Activity"
-            android:label="Learn Through Images"></activity>
-
-        <activity android:name=".PlayList"
+        <activity
+            android:name="learn.Learn_Activity"
+            android:label="Learn Through Images" />
+        <activity
+            android:name=".PlayList"
             android:label="@string/play_name"
-            android:theme="@style/PlayTheme"></activity>
+            android:theme="@style/PlayTheme" />
+        <activity android:name="play.GameActivity" />
 
-        <activity android:name="play.GameActivity"></activity>
-        <activity android:name="createStory.CreateStoryHome"></activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
