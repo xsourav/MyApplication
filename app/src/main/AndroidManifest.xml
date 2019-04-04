@@ -4,6 +4,8 @@
     package="com.example.myapplication">
 
     <dist:module dist:instant="true" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
 
     <application
         android:allowBackup="true"
@@ -35,7 +37,7 @@
             android:theme="@style/PlayTheme"></activity>
 
         <activity android:name="play.GameActivity"></activity>
-
+        <activity android:name="createStory.CreateStoryHome"></activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

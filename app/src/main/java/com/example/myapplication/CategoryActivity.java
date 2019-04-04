@@ -7,6 +7,8 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.GridLayout;
 
+import createStory.CreateStoryHome;
+
 public class CategoryActivity extends AppCompatActivity {
 //    ArrayList<String> categgoryList;
 //    ListAdapter adapter;
@@ -53,7 +55,7 @@ public class CategoryActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),SocialStoryCategory.class));
                     }
                     else if(finalI1 ==2){
-                        startActivity(new Intent(getApplicationContext(),PlayFriendsActivity.class));
+                        startActivity(new Intent(getApplicationContext(), CreateStoryHome.class));
                     }
 
 
