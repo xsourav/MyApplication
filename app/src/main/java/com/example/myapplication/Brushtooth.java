@@ -15,16 +15,24 @@ public class Brushtooth extends AppCompatActivity {
     List<Model> models;
     Integer[] colors=null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
-
+    ArrayList<String> description;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brushtooth);
 
         models =new ArrayList<>();
+        description = new ArrayList<>();
+        description.add("Get your toothbrush wet");
+        description.add("Put a little bit of toothpaste on your toothbrush");
+        description.add("Brush your teeth where the teeth and gums come together.Brush each tooth front and back.");
+        description.add(" Keep brushing your teeth for two minutes. An adult can keep a timer for you.");
+        description.add("Spit the toothpaste in the sink.Then rinse your mouth with water.");
+        description.add("Rinse all the toothpaste off your toothbrush and put it away.");
+
         Integer[] imgId={R.drawable.bt1,R.drawable.bt2,R.drawable.bt3,R.drawable.bt4,R.drawable.bt5,R.drawable.bt6};
         for (int i=0;i<imgId.length;i++){
-            models.add(new Model(imgId[i],"",""));
+            models.add(new Model(imgId[i],"",description.get(i)));
         }
 //        models.add(new Model(R.drawable.birthday, "Brochure", "qqqqqqqqqqqqq"));
 //        models.add(new Model(R.drawable.friends, "Sticker", "qqqqqqqqqqqq"));

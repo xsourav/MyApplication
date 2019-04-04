@@ -15,18 +15,32 @@ public class SchoolActivity extends AppCompatActivity {
     List<Model> models;
     Integer[] colors=null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+    ArrayList<String> description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school);
-
+        description = new ArrayList<>();
+        description.add("It is time to go back to school.");
+        description.add(" I will get to meet my new teacher.");
+        description.add(" I will make new friends.");
+        description.add("  I will learn new things.");
+        description.add(" I will learn about following rules.");
+        description.add(" I will learn about numbers.");
+        description.add(" I will read books.");
+        description.add("  I will eat lunch.");
+        description.add(" I will be allowed to take breaks if needed.");
+        description.add("  School will be fun!");
+        description.add(" I will go home at the end of the day.");
+        description.add("  I will come back to school tommorow.");
+        
         models =new ArrayList<>();
         Integer[] imgId={R.drawable.capture1,R.drawable.capture2,R.drawable.capture3,R.drawable.capture4,
                 R.drawable.capture5,R.drawable.capture7,R.drawable.capture8,R.drawable.capture9,
                 R.drawable.capture10,R.drawable.capture11,R.drawable.capture12,R.drawable.capture13};
         for (int i=0;i<imgId.length;i++){
-            models.add(new Model(imgId[i],"",""));
+            models.add(new Model(imgId[i],"",description.get(i)));
         }
 //        models.add(new Model(R.drawable.birthday, "Brochure", "qqqqqqqqqqqqq"));
 //        models.add(new Model(R.drawable.friends, "Sticker", "qqqqqqqqqqqq"));
