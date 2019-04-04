@@ -1,25 +1,41 @@
 package com.example.myapplication;
 
 import android.animation.ArgbEvaluator;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class BirthdayActivity extends AppCompatActivity {
+public class BirthdayActivity extends AppCompatActivity implements TextToSpeech.OnInitListener{
     ViewPager viewPager;
     Adapter adapter;
     List<Model> models;
     Integer[] colors=null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     ArrayList<String> description;
+    TextToSpeech tts;
+    Button readOutButton;
+    String textToRead = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_birthday);
+        tts=new TextToSpeech(this,this);
+        readOutButton=findViewById(R.id.btnOrder);
+        readOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                readOut();
+            }
+        });
         models =new ArrayList<>();
         description = new ArrayList<>();
         description.add("I like to play with my friends at school.");
@@ -42,12 +58,9 @@ public class BirthdayActivity extends AppCompatActivity {
                 R.drawable.bd5,R.drawable.bd6,R.drawable.bd7,R.drawable.bd8,R.drawable.bd9,R.drawable.bd10,R.drawable.bd11,
                 R.drawable.bd12,R.drawable.bd13,R.drawable.bd14,R.drawable.bd15};
         for (int i=0;i<imgId.length;i++){
-            models.add(new Model(imgId[i],"",""));
+            models.add(new Model(imgId[i],"",description.get(i)));
         }
-//        models.add(new Model(R.drawable.birthday, "Brochure", "qqqqqqqqqqqqq"));
-//        models.add(new Model(R.drawable.friends, "Sticker", "qqqqqqqqqqqq"));
-//        models.add(new Model(R.drawable.school1, "Poster", "qqqqqqqq"));
-//        models.add(new Model(R.drawable.toothbrush, "Namecard", "qqqqqqqqqq"));
+        textToRead=description.get(0);
 
         adapter = new Adapter(models,this);
         viewPager= findViewById(R.id.viewPager);
@@ -88,7 +101,7 @@ public class BirthdayActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int i) {
-
+                textToRead=models.get(i).getDesc();
             }
 
             @Override
@@ -96,5 +109,32 @@ public class BirthdayActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS) {
+            int result = tts.setLanguage(Locale.US);
+            if ( result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "onInit: Error Language Not Suppported" );
+            } else {
+//                readOutButton.setEnabled(true);
+                readOut();
+            }
+        } else {
+            Log.e("TTS", "onInit: Failed Instantiating");
+        }
+    }
+    @Override
+    public void onDestroy() {
+        // Don't forget to shutdown tts!
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+        }
+        super.onDestroy();
+    }
+    private void readOut() {
+        tts.speak(textToRead,TextToSpeech.QUEUE_FLUSH,null);
     }
 }

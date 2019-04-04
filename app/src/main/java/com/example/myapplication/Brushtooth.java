@@ -1,14 +1,19 @@
 package com.example.myapplication;
 
 import android.animation.ArgbEvaluator;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class Brushtooth extends AppCompatActivity {
+public class Brushtooth extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
     ViewPager viewPager;
     Adapter adapter;
@@ -16,10 +21,21 @@ public class Brushtooth extends AppCompatActivity {
     Integer[] colors=null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     ArrayList<String> description;
+    TextToSpeech tts;
+    Button readOutButton;
+    String textToRead = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brushtooth);
+        tts = new TextToSpeech(this,this);
+        readOutButton=findViewById(R.id.btnOrder);
+        readOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                readOut();
+            }
+        });
 
         models =new ArrayList<>();
         description = new ArrayList<>();
@@ -34,6 +50,7 @@ public class Brushtooth extends AppCompatActivity {
         for (int i=0;i<imgId.length;i++){
             models.add(new Model(imgId[i],"",description.get(i)));
         }
+        textToRead=description.get(0);
 //        models.add(new Model(R.drawable.birthday, "Brochure", "qqqqqqqqqqqqq"));
 //        models.add(new Model(R.drawable.friends, "Sticker", "qqqqqqqqqqqq"));
 //        models.add(new Model(R.drawable.school1, "Poster", "qqqqqqqq"));
@@ -76,6 +93,7 @@ public class Brushtooth extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int i) {
+                textToRead=models.get(i).getDesc();
 
             }
 
@@ -84,5 +102,24 @@ public class Brushtooth extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS) {
+            int result = tts.setLanguage(Locale.US);
+            if ( result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "onInit: Error Language Not Suppported" );
+            } else {
+//                readOutButton.setEnabled(true);
+                readOut();
+            }
+        } else {
+            Log.e("TTS", "onInit: Failed Instantiating");
+        }
+    }
+
+    private void readOut() {
+        tts.speak(textToRead,TextToSpeech.QUEUE_FLUSH,null);
     }
 }
