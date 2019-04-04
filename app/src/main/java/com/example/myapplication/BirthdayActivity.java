@@ -14,12 +14,30 @@ public class BirthdayActivity extends AppCompatActivity {
     List<Model> models;
     Integer[] colors=null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+    ArrayList<String> description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_birthday);
         models =new ArrayList<>();
+        description = new ArrayList<>();
+        description.add("I like to play with my friends at school.");
+        description.add("Sometimes my friends wll invite me to go to a party for their birthday.");
+        description.add("The party could be at a house, or a play center, or somewhere else.");
+        description.add("When i arrive at the birthday party. I usaully give my friend a present.");
+        description.add("Then I will say \"Happy Birthday\" to my friend.");
+        description.add("At the party, there will be other children and Mums and Dads");
+        description.add("Sometimes there will be games to play.We might play pass the parcel.");
+        description.add("we might play musical chairs, or something else.");
+        description.add("When its time to eat, we will usually sit together at the table.");
+        description.add("Then we can have something to eat.There will be lots of different food to choose from.");
+        description.add("After we have eaten, its usually time to sing Happy Birthday. Then my friend will blow out the candles of the cake.");
+        description.add("When the party is finished, my friend may give me a ballon, or a gift bag or something else to take home.");
+        description.add("Then it will be time to say \"goodbye\".");
+        description.add("It is a good to say thank you to my friend for asking me to the party.");
+        description.add("Birthday Parties are a lot of fun.");
+
         Integer[] imgId={R.drawable.bd1,R.drawable.bd2,R.drawable.bd3,R.drawable.bd4,
                 R.drawable.bd5,R.drawable.bd6,R.drawable.bd7,R.drawable.bd8,R.drawable.bd9,R.drawable.bd10,R.drawable.bd11,
                 R.drawable.bd12,R.drawable.bd13,R.drawable.bd14,R.drawable.bd15};

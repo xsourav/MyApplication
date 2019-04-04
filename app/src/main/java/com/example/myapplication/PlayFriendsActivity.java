@@ -15,6 +15,7 @@ public class PlayFriendsActivity extends AppCompatActivity {
     List<Model> models;
     Integer[] colors=null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+    ArrayList<String> description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,19 @@ public class PlayFriendsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_play_friends);
 
         models =new ArrayList<>();
+        description =new ArrayList<>();
+        description.add("we might play different kind of games.");
+        description.add("Sometines i see my friends playing , I want to play tool");
+        description.add("If i want to join in my friends game I need to smile and use my words for asking.");
+        description.add("I can say \"Hello! What are u doing ?\".");
+        description.add("I can say \"can i play too?\"");
+        description.add("Then my friends might invite me to play their game.");
+        description.add("Sometimes, even when I use my words, my friends say \"No\".This is ok.");
+        description.add("If my friends say \"No\", I can find something else to do.");
+        description.add("I can play on my own or ask someone else to  play.");
+        description.add("When I use my words and ask my friends to play. I feel really happy, and my friends do too.");
+        description.add("It's great to play with my friends at school.");
+
         Integer[] imgId={R.drawable.pg1,R.drawable.pg2,R.drawable.pg3,R.drawable.pg4,
                 R.drawable.pg6,R.drawable.pg7,R.drawable.pg8,R.drawable.pg9,
                 R.drawable.pg10,R.drawable.pg11,R.drawable.pg12,R.drawable.pg13};
