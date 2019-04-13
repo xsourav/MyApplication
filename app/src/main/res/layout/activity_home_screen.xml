@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeScreen"
-    android:background="@drawable/bg">
+    tools:context=".HomeScreen">
 
     <ImageView
         android:id="@+id/baloon"
-        android:layout_width="302dp"
-        android:layout_height="290dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
-        android:background="@drawable/ballon"
+        android:background="@drawable/socialstorylogo"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
