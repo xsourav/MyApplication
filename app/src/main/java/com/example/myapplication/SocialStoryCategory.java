@@ -23,7 +23,7 @@ public class SocialStoryCategory extends AppCompatActivity {
         categoryText=findViewById(R.id.categoryText1);
         als=new ArrayList<>();
         als.add("Birthday Celebration");
-//        als.add("School");
+        als.add("School");
         als.add("Brushing Tooth");
         als.add("Play With Friends");
         als.add("Play hide and seek");
@@ -37,19 +37,19 @@ public class SocialStoryCategory extends AppCompatActivity {
                 if (position == 0) {
                     startActivity(new Intent(SocialStoryCategory.this,BirthdayActivity.class));
                 }
-//                else if(position==1){
-//                    startActivity(new Intent(SocialStoryCategory.this, SchoolActivity.class));
-//                }
                 else if(position==1){
-                    startActivity(new Intent(SocialStoryCategory.this,Brushtooth.class));
+                    startActivity(new Intent(SocialStoryCategory.this, SchoolActivity.class));
                 }
                 else if(position==2){
-                    startActivity(new Intent(SocialStoryCategory.this,PlayFriendsActivity.class));
+                    startActivity(new Intent(SocialStoryCategory.this,Brushtooth.class));
                 }
                 else if(position==3){
-                    startActivity(new Intent(SocialStoryCategory.this,PlayHideAndSeek.class));
+                    startActivity(new Intent(SocialStoryCategory.this,PlayFriendsActivity.class));
                 }
                 else if(position==4){
+                    startActivity(new Intent(SocialStoryCategory.this,PlayHideAndSeek.class));
+                }
+                else if(position==5){
                     startActivity(new Intent(SocialStoryCategory.this,AskForHelp.class));
                 }
 
