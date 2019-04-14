@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -23,18 +24,17 @@ import java.util.List;
 
 public class CreateStoryHome extends AppCompatActivity {
     private FloatingActionButton imagePicker;
-    private GridView gridView;
+    private ViewPager viewPager;
     int IMAGE_PICK_MULTIPLE=1;
     String encodedImage;
     private List<String> encodedImageList;
-    private GalleryAdapter adapter;
+    private ImagePagerAdapter pagerAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_story_home);
         imagePicker=findViewById(R.id.pickImage);
-        gridView=findViewById(R.id.imageGrid);
-
+        viewPager=findViewById(R.id.slideViewPager);
         imagePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,23 +64,14 @@ public class CreateStoryHome extends AppCompatActivity {
                     //Use cursor to move get through images
                     Cursor cursor=getContentResolver().query(mImageUri,fileColumnPath,null,null,null);
                     cursor.moveToFirst();
-
                     int columnIndex=cursor.getColumnIndex(fileColumnPath[0]);
                     encodedImage=cursor.getString(columnIndex);
                     cursor.close();
-
                     ArrayList<Uri> imageUris=new ArrayList<>();
                     imageUris.add(mImageUri);
+                    pagerAdapter = new ImagePagerAdapter(getApplicationContext(),imageUris);
+                    viewPager.setAdapter(pagerAdapter);
 
-                    adapter=new GalleryAdapter(getApplicationContext(),imageUris);
-                    gridView.setAdapter(adapter);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        gridView.setVerticalSpacing(gridView.getHorizontalSpacing());
-                    }
-                    ViewGroup.MarginLayoutParams mlp= (ViewGroup.MarginLayoutParams) gridView.getLayoutParams();
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        mlp.setMargins(0,gridView.getHorizontalSpacing(),0,0);
-                    }
 
                 }
 
@@ -104,12 +95,10 @@ public class CreateStoryHome extends AppCompatActivity {
                                 encodedImage=cursor.getString(columnIndex);
                                 encodedImageList.add(encodedImage);
                                 cursor.close();
+                                pagerAdapter = new ImagePagerAdapter(getApplicationContext(),mImageUris);
 
-                                adapter=new GalleryAdapter(getApplicationContext(),mImageUris);
-                                gridView.setAdapter(adapter);
-                                gridView.setVerticalSpacing(gridView.getHorizontalSpacing());
-                                ViewGroup.MarginLayoutParams mlp= (ViewGroup.MarginLayoutParams) gridView.getLayoutParams();
-                                mlp.setMargins(0,gridView.getHorizontalSpacing(),0,0);
+                                viewPager.setAdapter(pagerAdapter);
+
 
 
 
