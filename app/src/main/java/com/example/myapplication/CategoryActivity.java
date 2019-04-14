@@ -15,14 +15,14 @@ public class CategoryActivity extends AppCompatActivity {
 //    ListView listView;
 //    TextView categoryText;
 //    ArrayList<Integer> imgid;
-    GridLayout mainGrid;
+android.support.v7.widget.GridLayout mainGrid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
-        mainGrid = (GridLayout)findViewById(R.id.mainGrid);
+        mainGrid = (android.support.v7.widget.GridLayout)findViewById(R.id.mainGrid);
 //        categgoryList = new ArrayList<>();
 //        imgid = new ArrayList<>();
 //        categgoryList.add("SchoolActivity");

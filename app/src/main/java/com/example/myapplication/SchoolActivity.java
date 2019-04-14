@@ -34,6 +34,13 @@ public class SchoolActivity extends AppCompatActivity implements TextToSpeech.On
         setContentView(R.layout.activity_school);
 
         tts = new TextToSpeech(this,this);
+        readOutButton=findViewById(R.id.btnReadOut);
+        readOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                readOut();
+            }
+        });
 
         description = new ArrayList<>();
         description.add("It is time to go back to school.");
@@ -65,13 +72,6 @@ public class SchoolActivity extends AppCompatActivity implements TextToSpeech.On
 
         adapter = new Adapter(models,this);
         viewPager= findViewById(R.id.viewPager);
-        readOutButton=findViewById(R.id.btnOrder);
-        readOutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                readOut();
-            }
-        });
         viewPager.setAdapter(adapter);
         viewPager.setPadding(130,0,130,0);
 

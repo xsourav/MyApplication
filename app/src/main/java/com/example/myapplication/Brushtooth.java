@@ -105,6 +105,15 @@ public class Brushtooth extends AppCompatActivity implements TextToSpeech.OnInit
     }
 
     @Override
+    public void onDestroy() {
+        // Don't forget to shutdown tts!
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+        }
+        super.onDestroy();
+    }
+    @Override
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
             int result = tts.setLanguage(Locale.US);
