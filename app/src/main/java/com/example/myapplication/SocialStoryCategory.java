@@ -28,6 +28,10 @@ public class SocialStoryCategory extends AppCompatActivity {
         als.add("Play With Friends");
         als.add("Play hide and seek");
         als.add("Ask for help");
+        als.add("Quiet Please");
+        als.add("School Work");
+        als.add("Personal Space");
+        als.add("Learn About Touching");
         adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,als);
         listView=findViewById(R.id.socialStoryListView);
         listView.setAdapter(adapter);
@@ -51,6 +55,18 @@ public class SocialStoryCategory extends AppCompatActivity {
                 }
                 else if(position==5){
                     startActivity(new Intent(SocialStoryCategory.this,AskForHelp.class));
+                }
+                else if(position==6){
+                    startActivity(new Intent(SocialStoryCategory.this,QuietPlease.class));
+                }
+                else if(position==7){
+                    startActivity(new Intent(SocialStoryCategory.this,SchoolWork.class));
+                }
+                else if(position==8){
+                    startActivity(new Intent(SocialStoryCategory.this,PersonalSpace.class));
+                }
+                else if(position==9){
+                    startActivity(new Intent(SocialStoryCategory.this,Toucing.class));
                 }
 
             }

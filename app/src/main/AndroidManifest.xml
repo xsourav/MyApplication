@@ -4,7 +4,8 @@
     package="com.example.myapplication">
 
     <dist:module dist:instant="true" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".AskForHelp"></activity>
+        <activity android:name=".Toucing"></activity>
+        <activity android:name=".PersonalSpace" />
+        <activity android:name=".SchoolWork" />
+        <activity android:name=".QuietPlease" />
+        <activity android:name=".AskForHelp" />
         <activity android:name=".PlayHideAndSeek" />
         <activity android:name=".LearnList" />
         <activity android:name=".LearnPlayStartActivity" />
@@ -38,7 +43,8 @@
             android:label="@string/play_name"
             android:theme="@style/PlayTheme" />
         <activity android:name="play.GameActivity" />
-        <activity android:name="createStory.CreateStoryHome"></activity>
+        <activity android:name="createStory.CreateStoryHome" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

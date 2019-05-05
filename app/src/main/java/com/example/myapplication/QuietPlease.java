@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class AskForHelp extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class QuietPlease extends AppCompatActivity implements TextToSpeech.OnInitListener {
     ViewPager viewPager;
     Adapter adapter;
     List<Model> models;
@@ -23,44 +23,50 @@ public class AskForHelp extends AppCompatActivity implements TextToSpeech.OnInit
     TextToSpeech tts;
     Button readOutButton;
     String textToRead = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ask_for_help);
-        models =new ArrayList<>();
+        setContentView(R.layout.activity_quiet_please);
+        models = new ArrayList<>();
+        description = new ArrayList<>();
         tts=new TextToSpeech(this,this);
-        readOutButton=findViewById(R.id.btnOrder);
+        tts.setSpeechRate(0.5f);
+        readOutButton = findViewById(R.id.btnOrder);
         readOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 readOut();
             }
         });
-        models =new ArrayList<>();
-        description = new ArrayList<>();
-        description.add("Asking for help.");
-        description.add("Sometimes when you are trying to do an activity, it gets too hard!");
-        description.add("I do not cry or yell when it gets too hard.");
-        description.add("I can ask for help.");
-        description.add("If i want to do an activity, but its too dangerous I can ask for help");
-        description.add("I can say \"Help PLease !\"");
-        description.add("If a friend is not playing nice, I can ask for help.");
-        description.add("I can ask an adult, \"Can you help me please.\"");
-        description.add("When you ask for help, an adult or friend will help you solve your problem");
+        description.add("There are a lot of children in my classroom");
+        description.add("My teacher talks to all the children");
+        description.add("When it is noisy in the classroom, the children can’t\n" +
+                "hear what the teacher is saying.");
+        description.add("When it is noisy in the classroom it is easy to get\n" +
+                "confused and frustrated.");
+        description.add("When I talk out loud, it is noisy! When I yell it is too\n" +
+                "noisy!");
+        description.add("I will try to talk quietly.\n"
+                );
+        description.add("I will try to raise my hand and wait until my teacher\n" +
+                "calls on me");
 
-        Integer[] imgId={R.drawable.ash1,R.drawable.ash2,R.drawable.ash3,R.drawable.ash4,R.drawable.ash5,
-                R.drawable.ash6,R.drawable.ash7,R.drawable.ash8,R.drawable.ash9};
+        Integer[] imgId= {
+                R.drawable.noise1,
+                R.drawable.noise2,
+                R.drawable.noise3,
+                R.drawable.noise4,
+                R.drawable.noise5,
+                R.drawable.noise6,
+                R.drawable.noise7
+        };
         for (int i=0;i<imgId.length;i++){
             models.add(new Model(imgId[i],"",""));
         }
-        textToRead=description.get(0);
-
+        textToRead = description.get(0);
         adapter = new Adapter(models,this);
         viewPager= findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
-        viewPager.setPadding(130,0,130,0);
-
         Integer[] colors_temp={
                 getResources().getColor(R.color.color1),
                 getResources().getColor(R.color.color2),
@@ -78,8 +84,7 @@ public class AskForHelp extends AppCompatActivity implements TextToSpeech.OnInit
                 getResources().getColor(R.color.color4),
 
         };
-
-        colors =colors_temp;
+        colors = colors_temp;
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -95,7 +100,7 @@ public class AskForHelp extends AppCompatActivity implements TextToSpeech.OnInit
 
             @Override
             public void onPageSelected(int i) {
-                textToRead=description.get(i);
+                textToRead = description.get(i);
             }
 
             @Override
@@ -104,6 +109,7 @@ public class AskForHelp extends AppCompatActivity implements TextToSpeech.OnInit
             }
         });
     }
+
     @Override
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
@@ -129,5 +135,10 @@ public class AskForHelp extends AppCompatActivity implements TextToSpeech.OnInit
     }
     private void readOut() {
         tts.speak(textToRead,TextToSpeech.QUEUE_FLUSH,null);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }
