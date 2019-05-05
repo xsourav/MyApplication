@@ -27,6 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/categoryText1"
+            android:background="#E9BFF0"
+            android:dividerHeight="5dp"
             android:elevation="50dp"
             android:textAlignment="center"></ListView>
 
