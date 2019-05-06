@@ -29,6 +29,8 @@ public class Brushtooth extends AppCompatActivity implements TextToSpeech.OnInit
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brushtooth);
         tts = new TextToSpeech(this,this);
+        tts.setSpeechRate(0.5f);
+
         readOutButton=findViewById(R.id.btnOrder);
         readOutButton.setOnClickListener(new View.OnClickListener() {
             @Override

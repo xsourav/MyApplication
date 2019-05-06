@@ -30,6 +30,8 @@ public class PlayFriendsActivity extends AppCompatActivity implements  TextToSpe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_friends);
         tts=new TextToSpeech(this,this);
+        tts.setSpeechRate(0.5f);
+
         readOutButton=findViewById(R.id.btnOrder);
         readOutButton.setOnClickListener(new View.OnClickListener() {
             @Override

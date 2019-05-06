@@ -32,6 +32,11 @@ public class SocialStoryCategory extends AppCompatActivity {
         als.add("School Work");
         als.add("Personal Space");
         als.add("Learn About Touching");
+        als.add("Hitting Is Bad!!");
+        als.add("Control Your Anger");
+        als.add("Summer Vacation");
+        als.add("Learn About Sharing");
+        als.add("Learn About Taking Turns");
         adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,als);
         listView=findViewById(R.id.socialStoryListView);
         listView.setAdapter(adapter);
@@ -67,6 +72,19 @@ public class SocialStoryCategory extends AppCompatActivity {
                 }
                 else if(position==9){
                     startActivity(new Intent(SocialStoryCategory.this,Toucing.class));
+                }
+                else if(position==10){
+                    startActivity(new Intent(SocialStoryCategory.this,Hitting.class));
+                }else if(position==11){
+                    startActivity(new Intent(SocialStoryCategory.this,ControlAnger.class));
+                }else if(position==12){
+                    startActivity(new Intent(SocialStoryCategory.this,SummerVacation.class));
+                }
+                else if(position==13){
+                    startActivity(new Intent(SocialStoryCategory.this,Sharing.class));
+                }
+                else if(position==14){
+                    startActivity(new Intent(SocialStoryCategory.this,TakingTurn.class));
                 }
 
             }

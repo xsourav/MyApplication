@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class AskForHelp extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class SummerVacation extends AppCompatActivity implements TextToSpeech.OnInitListener{
+
     ViewPager viewPager;
     Adapter adapter;
     List<Model> models;
@@ -23,45 +24,50 @@ public class AskForHelp extends AppCompatActivity implements TextToSpeech.OnInit
     TextToSpeech tts;
     Button readOutButton;
     String textToRead = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ask_for_help);
-        models =new ArrayList<>();
+        setContentView(R.layout.activity_summer_vacation);
+        models = new ArrayList<>();
+        description = new ArrayList<>();
         tts=new TextToSpeech(this,this);
         tts.setSpeechRate(0.5f);
-        readOutButton=findViewById(R.id.btnOrder);
+        readOutButton = findViewById(R.id.btnOrder);
         readOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 readOut();
             }
         });
-        models =new ArrayList<>();
-        description = new ArrayList<>();
-        description.add("Asking for help.");
-        description.add("Sometimes when you are trying to do an activity, it gets too hard!");
-        description.add("I do not cry or yell when it gets too hard.");
-        description.add("I can ask for help.");
-        description.add("If i want to do an activity, but its too dangerous I can ask for help");
-        description.add("I can say \"Help PLease !\"");
-        description.add("If a friend is not playing nice, I can ask for help.");
-        description.add("I can ask an adult, \"Can you help me please.\"");
-        description.add("When you ask for help, an adult or friend will help you solve your problem");
 
-        Integer[] imgId={R.drawable.ash1,R.drawable.ash2,R.drawable.ash3,R.drawable.ash4,R.drawable.ash5,
-                R.drawable.ash6,R.drawable.ash7,R.drawable.ash8,R.drawable.ash9};
+        description.add("Let's Learn about summer vacation");
+        description.add("Soon it will be summer vacation. Summer vacation is time away from\n" +
+                "school.");
+        description.add("Students are usually excited about summer vacation. It is okay to\n" +
+                "be happy about summer holidays.");
+        description.add("4\n" +
+                "The weather is usually warm and\n" +
+                "nice. When vacation is over, most students return to school.");
+        description.add("During summer I might go swimming, go to the park, go to the mall,\n" +
+                "go to the movies, play games, read books, or visit the library.");
+
+        Integer[] imgId = {
+            R.drawable.summervac1,
+            R.drawable.summervac2,
+            R.drawable.summervac3,
+            R.drawable.summervac4,
+            R.drawable.summervac5,
+
+        };
+
+
         for (int i=0;i<imgId.length;i++){
             models.add(new Model(imgId[i],"",""));
         }
-        textToRead=description.get(0);
-
+        textToRead = description.get(0);
         adapter = new Adapter(models,this);
         viewPager= findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
-        viewPager.setPadding(130,0,130,0);
-
         Integer[] colors_temp={
                 getResources().getColor(R.color.color1),
                 getResources().getColor(R.color.color2),
@@ -79,8 +85,7 @@ public class AskForHelp extends AppCompatActivity implements TextToSpeech.OnInit
                 getResources().getColor(R.color.color4),
 
         };
-
-        colors =colors_temp;
+        colors = colors_temp;
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -96,7 +101,7 @@ public class AskForHelp extends AppCompatActivity implements TextToSpeech.OnInit
 
             @Override
             public void onPageSelected(int i) {
-                textToRead=description.get(i);
+                textToRead = description.get(i);
             }
 
             @Override
@@ -119,7 +124,6 @@ public class AskForHelp extends AppCompatActivity implements TextToSpeech.OnInit
             Log.e("TTS", "onInit: Failed Instantiating");
         }
     }
-    @Override
     public void onDestroy() {
         // Don't forget to shutdown tts!
         if (tts != null) {
@@ -128,6 +132,12 @@ public class AskForHelp extends AppCompatActivity implements TextToSpeech.OnInit
         }
         super.onDestroy();
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     private void readOut() {
         tts.speak(textToRead,TextToSpeech.QUEUE_FLUSH,null);
     }

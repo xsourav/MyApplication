@@ -29,6 +29,8 @@ public class BirthdayActivity extends AppCompatActivity implements TextToSpeech.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_birthday);
         tts=new TextToSpeech(this,this);
+        tts.setSpeechRate(0.5f);
+
         readOutButton=findViewById(R.id.btnOrder);
         readOutButton.setOnClickListener(new View.OnClickListener() {
             @Override

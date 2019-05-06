@@ -31,6 +31,8 @@ public class PlayHideAndSeek extends AppCompatActivity implements TextToSpeech.O
         setContentView(R.layout.activity_play_hide_and_seek);
 
         tts=new TextToSpeech(this,this);
+        tts.setSpeechRate(0.5f);
+
         readOutButton=findViewById(R.id.btnOrder);
         readOutButton.setOnClickListener(new View.OnClickListener() {
             @Override

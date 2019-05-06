@@ -34,6 +34,8 @@ public class SchoolActivity extends AppCompatActivity implements TextToSpeech.On
         setContentView(R.layout.activity_school);
 
         tts = new TextToSpeech(this,this);
+        tts.setSpeechRate(0.5f);
+
         readOutButton=findViewById(R.id.btnReadOut);
         readOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
